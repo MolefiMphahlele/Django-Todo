@@ -1,0 +1,32 @@
+
+{% extends 'Todo/Base.html'%}
+
+{%block content%}
+<table>
+        <tr> 
+            <th>My Todo list</th> 
+            
+        </tr>
+        <tr>
+        <th><a href = "{% url 'TaskCreate'%}"> create a new task</a></th>
+    </tr>
+    {%for item in TaskList%}
+    <tr>
+        <td>{{item.title}}</td>
+        <td>
+            <a href = "{% url 'Update' item.id%}"> edit</a>
+        </td>
+        <td>
+            <a href = "{% url 'Delete' item.id%}"> delete</a>
+        </td>
+    </tr>
+
+
+    {%empty%}
+    <h3>No items</h3>
+    {%endfor%}
+</table>    
+
+{%endblock%}
+
+

@@ -1,0 +1,14 @@
+{% extends 'Todo/Base.html'%}
+
+{%block content%}
+<form method = "POST" action="{% url 'Update' task_id %}">
+    {%csrf_token%}
+    {{task.as_p}}
+    <input type = "Submit" value = "Update task">
+
+    <a href = "{%url 'Delete' task_id%}">
+        <input type ="button" value = "Delete">
+    </a>
+</form>
+
+{%endblock%}
